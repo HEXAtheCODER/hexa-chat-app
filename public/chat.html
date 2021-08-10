@@ -11,6 +11,7 @@
 
     <div id="username-room-info"></div>
     <div id="total-user-info"></div>
+    <div id="active-rooms"></div>
 
     <form>
         <p>Enter the message here</p>
@@ -42,6 +43,12 @@
     <script id="total-user-template" type="text/html">
         <div>
             <pre><span style="font-weight: bold;">In room</span><br><ul style="list-style-type:none">{{#users}}<li>{{username}}</li>{{/users}}</ul></pre>
+        </div>
+    </script>
+
+    <script id="active-room-template" type="text/html">
+        <div>
+            <pre><span style="font-weight: bold;">Active rooms</span><br><ul style="list-style-type:none">{{#activeRooms}}<li>{{.}}</li>{{/activeRooms}}</ul></pre>
         </div>
     </script>
 

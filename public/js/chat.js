@@ -11,6 +11,7 @@ const messageTemplate = document.querySelector('#message-template').innerHTML
 const locationTemplate = document.querySelector('#location-template').innerHTML
 const usernameRoomInfoTemplate = document.querySelector('#username-room-info-template').innerHTML
 const totalUserTemplate = document.querySelector('#total-user-template').innerHTML
+const activeRoomsTemplate = document.querySelector('#active-room-template').innerHTML
 
 const {username, room} = Qs.parse(location.search, {ignoreQueryPrefix:true})
 
@@ -51,6 +52,13 @@ socket.on('usersInRoom', (users, room)=>{
     })
 
     document.querySelector('#total-user-info').innerHTML = html
+})
+
+socket.on('totalActiveRooms', (activeRooms)=>{
+    const html = Mustache.render(activeRoomsTemplate,{
+        activeRooms
+    })
+    document.querySelector('#active-rooms').innerHTML = html
 })
 
 form.addEventListener('submit' , (e) => {

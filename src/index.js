@@ -3,6 +3,7 @@ const socket = require('socket.io');
 const http = require('http');
 const { generateMessage, generateLocationMessage } = require('./utils/messages');
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./utils/users');
+const getActiveRooms = require('./utils/rooms');
 
 const path = require('path');
 
@@ -32,6 +33,8 @@ io.on('connection' , (socket) => {
 
         socket.emit('setUsername', username, room)
 
+        io.emit('totalActiveRooms', getActiveRooms(io.sockets.adapter.rooms))
+
         callback()
     })
 
@@ -55,6 +58,7 @@ io.on('connection' , (socket) => {
         if(user) {
             io.to(user.room).emit('message', generateMessage(user.username, 'left'))
             io.to(user.room).emit('usersInRoom', getUsersInRoom(user.room), user.room)
+            io.emit('totalActiveRooms', getActiveRooms(io.sockets.adapter.rooms))
         }
     })    
 })
