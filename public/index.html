@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css"></link>
     <title>Document</title>
 </head>
 <body>
 
-    <form action="./chat.html">
+    <div class="index-form">
+        <form action="./chat.html">
         
-        <input type="text" name="username" autocomplete="off" placeholder="Username">
-        <input type="text" name="room" autocomplete="off" placeholder="Room name">
-
-        <input type="submit">
-    </form>
+            <input type="text" name="username" autocomplete="off" placeholder="Username" id="input-field">
+            <br>
+            <input type="text" name="room" autocomplete="off" placeholder="Room name" id="input-field">
+            <br>
+            <input type="submit" id="submit-button" value="Connect">
+        </form>
+        </form>
+    </div>
     
 </body>
 </html>
