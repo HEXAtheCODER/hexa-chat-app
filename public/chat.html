@@ -4,56 +4,145 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat App</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="./css/styles-chat.css">
+    <title>Chat App</title> 
 </head>
 <body>
-    <h1>Chat-app</h1>
 
-    <div id="username-room-info"></div>
-    <div id="total-user-info"></div>
-    <div id="active-rooms"></div>
+    <div class="container">
+        <div class="header">
 
-    <form>
-        <p>Enter the message here</p>
-        <input type="text" placeholder="message" name="inputMessage" autocomplete="off">
-        <br>
-        <input type="submit" id="submit">
-    </form>
+            <div class="header-content">
+                <h2>Hexchat</h2>
+                <p>Chat as you like, no one is seeing you.</p>
+            </div>
 
-    <div id="messages"></div>
+            <div>
+                <p>
+                    <div id="username-room-info"></div>
+                </p>
+            </div>
+
+        </div>
+        <div class="main">
+            <div class="main-message-window">
+                <div id="messages"></div>
+            </div>
+
+            <div class="main-message-form">
+                <form>
+                    <input type="text" placeholder="message" name="inputMessage" autocomplete="off" id="text-field">
+                    <input type="submit" id="submit">
+                    <button id="geolocation-buttom">Share location</button>
+                </form>
+                
+            </div>
+        </div>
+        <div class="sidebar">
+            <p>Total members</p>
+            <div id="total-user-info"></div>
+        </div>
+    </div>
+    <!--div id="active-rooms"></div-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <script id="message-template" type="text/html">
         <div>
-            <pre><span style="font-weight: bold;">{{ createdAt }} {{ sendBy }}</span>       {{ message }}</pre>
+            <p><span id="createdby-sendby">{{ createdAt }} {{ sendBy }}</span> {{ message }}</p>
         </div>
     </script>
 
     <script id="location-template" type="text/html">
         <div>
-            <pre><span style="font-weight: bold;">{{ createdAt }} {{ sendBy }}</span>       <a href="{{message}}" target="_blank">My current location</a></pre>
+            <p><span id="createdby-sendby">{{ createdAt }} {{ sendBy }}</span> <a href="{{message}}" target="_blank">My current location</a></p>
         </div>
     </script>
 
     <script id="username-room-info-template" type="text/html">
         <div>
-            <pre>Username : <span style="font-weight: bold;">{{ username }}</span><br>Room : <span style="font-weight: bold;">{{ room }}</span></pre>
+            <p>Username : <span style="font-weight: bold;">{{ username }}<br></span> Room : <span style="font-weight: bold;">{{ room }}</span></pre>
         </div>
     </script>
 
     <script id="total-user-template" type="text/html">
         <div>
-            <pre><span style="font-weight: bold;">In room</span><br><ul style="list-style-type:none">{{#users}}<li>{{username}}</li>{{/users}}</ul></pre>
+            <ul>{{#users}}<li><p>{{username}}</p></li>{{/users}}</ul>
         </div>
     </script>
 
-    <script id="active-room-template" type="text/html">
+    <!--script id="active-room-template" type="text/html">
         <div>
-            <pre><span style="font-weight: bold;">Active rooms</span><br><ul style="list-style-type:none">{{#activeRooms}}<li>{{.}}</li>{{/activeRooms}}</ul></pre>
+            <pre><span style="font-weight: bold;">Active rooms</span><br><ul>{{#activeRooms}}<li>{{.}}</li>{{/activeRooms}}</ul></pre>
         </div>
-    </script>
-
-    <button id="geolocation-buttom">Share location</button>
-
+    </script-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.1.3/mustache.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
